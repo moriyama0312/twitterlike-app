@@ -15,8 +15,11 @@
                 <div id="p-top-right__inner">
                     <div id="p-top-right-content">
                         <LoginForm />
-                        <h1 id="p-top-right-ttl">「いま」起きていることを<br>見つけよう</h1>
-                        <CreateAccountForm />
+                        <h1 id="p-top-right--ttl">「いま」起きていることを<br>見つけよう</h1>
+                        <div id="p-top-right-form">
+                            <h2 id="p-top-right-form--ttl">Twitterをはじめよう</h2>
+                            <CreateAccountForm />
+                        </div>
                     </div>
                 </div>
             </div>
