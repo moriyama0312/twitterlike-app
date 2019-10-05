@@ -1,0 +1,23 @@
+@charset 'utf-8';
+@import './variation.scss';
+body {
+    height: 100%;
+    width: 100%;
+    #app {
+        height: 100%;
+        #l-document {
+            height: 100%;
+        }
+    }
+}
+
+#top {
+    height: 100vh;
+    #l-document {
+
+    }
+}
+
+p, h1, h2, h3, h4, h5 {
+    color: $key-font-color;
+}

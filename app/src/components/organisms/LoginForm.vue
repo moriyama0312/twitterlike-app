@@ -3,7 +3,9 @@
         <form>
             <Input />
             <Input />
-            <Button />
+            <Button
+                text="ログイン"
+            />
         </form>
     </div>
 </template>

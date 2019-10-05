@@ -3,7 +3,15 @@
 @import './base/util.scss';
 @import './base/config.scss';
 @import './base/variation.scss';
+@import './base/page.scss';
 
 // 各モジュール
+// molecules
+@import './modules/molecules/input.scss';
+@import './modules/molecules/button.scss';
+// organisms
+@import './modules/organisms/login-form.scss';
+@import './modules/organisms/create-account-form.scss';
 
 // 各ページ
+@import './pages/top.scss';

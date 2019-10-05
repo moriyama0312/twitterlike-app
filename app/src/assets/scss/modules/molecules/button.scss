@@ -1,0 +1,13 @@
+@charset 'utf-8';
+@import '../../base/variation.scss';
+
+.c-button {
+    > button {
+        border: 1px solid $key-color;
+        border-radius: 25px;
+        font-size: 14px;
+        font-weight: 600;
+        color: $key-color;
+        padding: 12px;
+    }
+}

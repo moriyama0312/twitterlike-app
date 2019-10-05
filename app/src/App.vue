@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <div id="l-document">
-      <div id="l-document__inner">
-        <router-view/>
-      </div>
+      <router-view/>
     </div>
   </div>
 </template>

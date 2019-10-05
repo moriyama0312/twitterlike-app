@@ -1,0 +1,13 @@
+@charset 'utf-8';
+@import '../../base/variation.scss';
+
+.c-input {
+    > input {
+        border: 1px solid $border-color;
+        border-radius: 3px;
+        font-size: 14px;
+        background: #10171e;
+        padding: 12px;
+        width: 200px;
+    }
+}

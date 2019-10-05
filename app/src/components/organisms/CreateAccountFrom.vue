@@ -1,8 +1,12 @@
 <template>
     <div class="c-account-form">
         <form>
-            <Button />
-            <Button />
+            <Button 
+                text="アカウント作成"
+            />
+            <Button 
+                text="ログイン"
+            />
         </form>
     </div>
 </template>
