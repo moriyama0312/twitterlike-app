@@ -14,7 +14,7 @@
             <div id="p-top-right">
                 <div id="p-top-right__inner">
                     <div id="p-top-right-content">
-                        <TopLoginForm />
+                        <LoginForm />
                         <h1 id="p-top-right-ttl">「いま」起きていることを<br>見つけよう</h1>
                         <CreateAccountForm />
                     </div>
@@ -24,11 +24,11 @@
     </div>
 </template>
 <script>
-import TopLoginForm from '../components/organisms/TopLoginForm'
+import LoginForm from '../components/organisms/LoginForm'
 import CreateAccountForm from '../components/organisms/CreateAccountFrom'
 export default {
     components: {
-        TopLoginForm,
+        LoginForm,
         CreateAccountForm
     }
 }
