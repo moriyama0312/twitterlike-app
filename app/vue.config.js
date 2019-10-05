@@ -10,5 +10,10 @@ module.exports = {
       shouldServeApp: true,
       serverDir: './backend'
     }
+  },
+  css: {
+    loaderOptions: {
+      
+    }
   }
 }
