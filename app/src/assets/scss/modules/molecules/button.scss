@@ -1,5 +1,6 @@
 @charset 'utf-8';
 @import '../../base/variation.scss';
+@import '../../base/util.scss';
 
 .c-button {
     > button {
@@ -9,5 +10,6 @@
         font-weight: 600;
         color: $key-color;
         padding: 12px;
+        @include btn-hover;
     }
 }

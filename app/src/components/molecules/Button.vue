@@ -1,10 +1,12 @@
 <template>
     <div class="c-button">
-        <button>{{ text }}</button>
+        <button :type="type">{{ text }}</button>
     </div>
 </template>
 <script>
 export default {
-    props: ['text']
+    props: ['type', 'text'],
+    methods: {
+    }
 }
 </script>
