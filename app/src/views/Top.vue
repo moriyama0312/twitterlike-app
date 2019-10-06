@@ -14,7 +14,7 @@
             <div id="p-top-right">
                 <div id="p-top-right__inner">
                     <div id="p-top-right-content">
-                        <LoginForm />
+                        <LoginForm :onlogin="onlogin" />
                         <div id="p-top-right-form__wrapper">
                             <h1 id="p-top-right--ttl">「いま」起きていることを見つけよう</h1>
                             <div id="p-top-right-form">
@@ -35,6 +35,11 @@ export default {
     components: {
         LoginForm,
         CreateAccountForm
+    },
+    methods: {
+        onlogin(token, id='', password='') {
+            this.$store.dispatch('Login/login', {token, id, password})
+        }
     }
 }
 </script>
