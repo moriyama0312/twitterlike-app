@@ -7,5 +7,17 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 	modules: {
 		Login
+	},
+	state: {
+		isLogin: false,
+		userInfo: {
+
+		}
+	},
+	mutations: {
+		onLogin: (data) => {
+			state.isLogin = true
+			state.userInfo = data
+		}
 	}
 })

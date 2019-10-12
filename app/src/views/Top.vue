@@ -38,7 +38,10 @@ export default {
     },
     methods: {
         onlogin(token, id='', password='') {
-            this.$store.dispatch('Login/login', {token, id, password})
+            return this.$store.dispatch('Login/login', {token, id, password})
+                .then(() => {
+                    this.$router.push({name: 'home'})
+                })
         }
     }
 }

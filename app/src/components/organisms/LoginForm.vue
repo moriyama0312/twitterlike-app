@@ -43,11 +43,19 @@ export default {
         submitForm() {
             if(localStorage.token) {
                 this.onlogin(localStorage.token)
+                    .then(() => {
+                        this.userID = ''
+                        this.password = ''
+                    })
             }else {
                 if(!this.validate) {
                     return
                 }else {
                     this.onlogin('', this.userID, this.password)
+                        .then(() => {
+                            this.userID = ''
+                            this.password = ''
+                        })
                 }
             }           
         }
