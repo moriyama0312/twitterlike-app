@@ -1,6 +1,6 @@
 export default {
 	getToken: (userInfo) => {
-		return fetch('user/token', {
+		return fetch('/user/token', {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',
@@ -15,7 +15,7 @@ export default {
 		})
 	},
 	getUserId: (token) => {
-		return fetch('user/id', {
+		return fetch('/user/id', {
 			method: 'GET',
 			headers: {
 				Accept: 'application/json',
