@@ -3,7 +3,7 @@ export default {
 		let resultToken = '';
         const str = 'Bearer ';
 
-        if(token.indexOf(str) === 0) {
+        if(auth.indexOf(str) === 0) {
             resultToken = auth.replace(str, '');
         }
 

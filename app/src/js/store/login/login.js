@@ -16,7 +16,7 @@ export default {
 			if(userInfo.token === '') {
 				return loginFuncs.getToken(userInfo)
 					.then((res) => {
-						ctx.login({ token: res })
+						ctx.dispatch('login', { token: res })
 					})
 			}else {
 				return loginFuncs.getUserId(userInfo.token)

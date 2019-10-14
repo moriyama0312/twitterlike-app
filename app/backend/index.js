@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import socketIO from 'socket.io';
+// import socketIO from 'socket.io';
 import jwtFunc from './jwt/index.js';
 import toolFuncs from './tools/func.js';
 
