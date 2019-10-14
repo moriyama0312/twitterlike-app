@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import socketIO from 'socket.io';
 import jwtFunc from './jwt/indx.js';
+import toolFuncs from './js/tools/func.js';
 
 export default (app, http) => {
 	app.use(express.json());
@@ -12,10 +13,11 @@ export default (app, http) => {
 		let result = jwtFunc.encode(req.body);
 		res.send(JSON.stringify(result));
 	});
-	app.get('/user/id', (req, res) => {
-		const id = jwtFunc.decode(req.headers.authorization);
+	app.get('/user/id', async (req, res) => {
+		const token = toolFuncs.removeBearer(req.headers.authorization);
+		const id = await jwtFunc.decode(token);
 		res.send(JSON.stringify(id));
-	})
+	});
 	//
 	// app.get('/foo', (req, res) => {
 	//   res.json({msg: 'foo'});
