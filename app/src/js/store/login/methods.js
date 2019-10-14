@@ -6,7 +6,7 @@ export default {
 				Accept: 'application/json',
 				'Content-Type': 'application/json'
 			},
-			body: userInfo
+			body: userInfo.id
 		})
 		.then((res) => {
 			if(res.ok) {

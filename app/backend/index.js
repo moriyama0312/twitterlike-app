@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import socketIO from "socket.io";
+import socketIO from 'socket.io';
+import jwtFunc from './jwt/indx.js';
 
 export default (app, http) => {
 	app.use(express.json());
@@ -8,7 +9,7 @@ export default (app, http) => {
   	app.use(bodyParser.json());
 
 	app.post('/user/token', (req, res) => {
-		let result = getJwt(req.body);
+		let result = jwtFunc.encode(req.body);
 	});
 	//
 	// app.get('/foo', (req, res) => {
