@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import socketIO from 'socket.io';
-import jwtFunc from './jwt/indx.js';
+import jwtFunc from './jwt/index.js';
 import toolFuncs from './js/tools/func.js';
 
 export default (app, http) => {
