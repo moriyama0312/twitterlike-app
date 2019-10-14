@@ -1,7 +1,4 @@
-import {
-	getToken,
-	getUserId
-} from './methods.js'
+import loginFuncs from './methods.js'
 
 export default {
     namespaced: true,
@@ -17,12 +14,12 @@ export default {
     actions: {
         login: (ctx, userInfo) => {
 			if(userInfo.token === '') {
-				return getToken(userInfo)
+				return loginFuncs.getToken(userInfo)
 					.then((res) => {
 						ctx.login({ token: res })
 					})
 			}else {
-				return getUserId(userInfo.token)
+				return loginFuncs.getUserId(userInfo.token)
 					.then((res) => {
 						ctx.commit('onLogin', res, { root: true })
 					})
