@@ -10,7 +10,12 @@ export default (app, http) => {
 
 	app.post('/user/token', (req, res) => {
 		let result = jwtFunc.encode(req.body);
+		res.send(JSON.stringify(result));
 	});
+	app.get('/user/id', (req, res) => {
+		const id = jwtFunc.decode(req.headers.authorization);
+		res.send(JSON.stringify(id));
+	})
 	//
 	// app.get('/foo', (req, res) => {
 	//   res.json({msg: 'foo'});
