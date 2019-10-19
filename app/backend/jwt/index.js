@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken';
 
 export default {
 	encode: (id) => {
+		console.log(id);
 		const payload = {
 			sub: id
 		};

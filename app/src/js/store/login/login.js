@@ -14,8 +14,11 @@ export default {
     actions: {
         login: (ctx, userInfo) => {
 			if(userInfo.token === '') {
+				console.log("hogehoge")
+				console.log(userInfo)
 				return loginFuncs.getToken(userInfo)
 					.then((res) => {
+						console.log(res)
 						ctx.dispatch('login', { token: res })
 					})
 			}else {

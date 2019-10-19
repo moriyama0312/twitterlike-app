@@ -1,12 +1,13 @@
 export default {
 	getToken: (userInfo) => {
+		console.log(userInfo);
 		return fetch('/user/token', {
 			method: 'POST',
 			headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json'
 			},
-			body: userInfo.id
+			body: JSON.stringify({id: userInfo.id})
 		})
 		.then((res) => {
 			if(res.ok) {

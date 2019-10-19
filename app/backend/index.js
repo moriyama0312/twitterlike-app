@@ -10,10 +10,14 @@ export default (app, http) => {
   	app.use(bodyParser.json());
 
 	app.post('/user/token', (req, res) => {
+		console.log("koko");
+		console.log(req.body);
 		let result = jwtFunc.encode(req.body);
+		console.log(result);
 		res.send(JSON.stringify(result));
 	});
 	app.get('/user/id', async (req, res) => {
+		console.log("kotti");
 		const token = toolFuncs.removeBearer(req.headers.authorization);
 		const id = await jwtFunc.decode(token);
 		res.send(JSON.stringify(id));
