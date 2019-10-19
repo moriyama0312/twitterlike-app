@@ -12,6 +12,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "core-js": "^2.6.5",
+    "mysql": "^2.17.1",
     "register-service-worker": "^1.6.2",
     "ress": "^2.0.1",
     "socket.io": "^2.3.0",
