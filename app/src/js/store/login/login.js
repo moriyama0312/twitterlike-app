@@ -19,11 +19,13 @@ export default {
 				return loginFuncs.getToken(userInfo)
 					.then((res) => {
 						console.log(res)
+						localStorage.token = res
 						ctx.dispatch('login', { token: res })
 					})
 			}else {
 				return loginFuncs.getUserId(userInfo.token)
 					.then((res) => {
+						console.log(res)
 						ctx.commit('onLogin', res, { root: true })
 					})
 			}
