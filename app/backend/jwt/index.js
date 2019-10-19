@@ -1,10 +1,9 @@
 import jwt from 'jsonwebtoken';
 
 export default {
-	encode: (userId) => {
-		console.log(userId);
+	encode: (userInfo) => {
 		const payload = {
-			sub: userId.id
+			sub: userInfo.id
 		};
 		const secret = 'secret_key_goes_here';
 		const header = {

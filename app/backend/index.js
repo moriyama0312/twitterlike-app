@@ -1,8 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 // import socketIO from 'socket.io';
+import dbCheck from './db/dbCheck';
 import jwtFunc from './jwt/index.js';
 import toolFuncs from './tools/func.js';
+import { DH_UNABLE_TO_CHECK_GENERATOR } from 'constants';
 
 export default (app, http) => {
 	app.use(express.json());
@@ -12,9 +14,15 @@ export default (app, http) => {
 	app.post('/user/token', (req, res) => {
 		console.log("koko");
 		console.log(req.body);
-		let result = jwtFunc.encode(req.body);
-		console.log(result);
-		res.send(JSON.stringify(result));
+		dbCheck(req.body, (data, err='') => {
+			if(err) {
+				res.send(err);
+			}else {
+				const token = jwtFunc.encode(req.body);
+				const result = Object.assign(data, {token});
+				res.send(JSON.stringify(result));
+			}
+		});
 	});
 	app.get('/user/id', async (req, res) => {
 		console.log("kotti");

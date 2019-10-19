@@ -7,7 +7,7 @@ export default {
 				Accept: 'application/json',
 				'Content-Type': 'application/json'
 			},
-			body: JSON.stringify({id: userInfo.id})
+			body: JSON.stringify(userInfo)
 		})
 		.then((res) => {
 			if(res.ok) {
