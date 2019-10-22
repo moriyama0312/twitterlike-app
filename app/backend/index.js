@@ -19,8 +19,8 @@ export default (app, http) => {
 				res.send(err);
 			}else {
 				const token = jwtFunc.encode(req.body);
-				const result = Object.assign(data, {token});
-				res.send(JSON.stringify(result));
+				// const result = Object.assign(data, {token});
+				res.send(JSON.stringify(token));
 			}
 		});
 	});
