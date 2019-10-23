@@ -15,22 +15,22 @@ export default {
 			lists: [
 				{
 					id: "bird",
-					link: "",
+					linkName: "",
 					imagePath: ""
 				},
 				{
 					id: "home",
-					link: "",
+					linkName: "",
 					imagePath: ""
 				},
 				{
 					id: "notifications",
-					link: "",
+					linkName: "",
 					imagePath: ""
 				},
 				{
 					id: "profile",
-					link: "",
+					linkName: "",
 					imagePath: ""
 				}
 			]
