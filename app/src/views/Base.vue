@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="loggin-page">
 		<SideHeader />
 		<router-view />
 	</div>

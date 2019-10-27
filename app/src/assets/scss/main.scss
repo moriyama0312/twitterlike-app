@@ -9,9 +9,11 @@
 // molecules
 @import './modules/molecules/input.scss';
 @import './modules/molecules/button.scss';
+@import './modules/molecules/side-header-list-item.scss';
 // organisms
 @import './modules/organisms/login-form.scss';
 @import './modules/organisms/create-account-form.scss';
+@import './modules/organisms/side-header.scss';
 
 // 各ページ
 @import './pages/top.scss';

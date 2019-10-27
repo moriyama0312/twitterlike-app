@@ -1,5 +1,5 @@
 <template>
-	<ul>
+	<ul id="c-side-header-list">
 		<SideHeaderListItem
 			v-for="list in lists"
 			:key="list.id"
