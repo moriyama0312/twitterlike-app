@@ -10,10 +10,13 @@
 @import './modules/molecules/input.scss';
 @import './modules/molecules/button.scss';
 @import './modules/molecules/side-header-list-item.scss';
+@import './modules/molecules/serch-box.scss';
 // organisms
 @import './modules/organisms/login-form.scss';
 @import './modules/organisms/create-account-form.scss';
 @import './modules/organisms/side-header.scss';
+@import './modules/organisms/sub-contents.scss';
 
 // 各ページ
 @import './pages/top.scss';
+@import './pages/home.scss';
