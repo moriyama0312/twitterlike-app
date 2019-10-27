@@ -1,6 +1,6 @@
 <template>
 	<li>
-		<router-link :to="{name:list.linkName}"><img src="list.imagePath"></router-link>
+		<router-link :to="{name:list.linkName}">{{ list.imagePath }}</router-link>
 	</li>
 </template>
 <script>

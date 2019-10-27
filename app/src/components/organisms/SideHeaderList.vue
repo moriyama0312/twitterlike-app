@@ -3,8 +3,9 @@
 		<SideHeaderListItem
 			v-for="list in lists"
 			:key="list.id"
+			:list="list"
 		/>
-		<li id="tweet" class="js-modal">+</li>
+		<li id="tweet" class="js-modal"><a href="#">+</a></li>
 	</ul>
 </template>
 <script>
@@ -16,22 +17,22 @@ export default {
 				{
 					id: "bird",
 					linkName: "",
-					imagePath: ""
+					imagePath: "B"
 				},
 				{
 					id: "home",
 					linkName: "",
-					imagePath: ""
+					imagePath: "H"
 				},
 				{
 					id: "notifications",
 					linkName: "",
-					imagePath: ""
+					imagePath: "N"
 				},
 				{
 					id: "profile",
 					linkName: "",
-					imagePath: ""
+					imagePath: "P"
 				}
 			]
 		}
