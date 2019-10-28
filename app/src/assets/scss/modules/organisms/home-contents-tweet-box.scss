@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+.c-tweet {
+	background: $key-bg-color;
+	height: 150px;
+	&__inner {
+		padding: 15px 20px 10px;
+		display: flex;
+	}
+	&__icon {
+		width: 60px;
+		a {
+			display: inline-block;
+			width: 60px;
+			height: 60px;
+			// background-image: url('./img/')
+			background: #ffffff;
+			border-radius: 50%;
+			vertical-align: bottom;
+		}
+	}
+}

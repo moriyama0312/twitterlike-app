@@ -2,7 +2,7 @@
 	<div class="c-tweet">
 		<div class="c-tweet__inner">
 			<div class="c-tweet__icon">
-				<span></span>
+				<router-link :to="{name: 'profile'}"></router-link>
 			</div>
 			<div class="c-tweet__contents">
 				<form>
