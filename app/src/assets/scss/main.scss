@@ -11,11 +11,13 @@
 @import './modules/molecules/button.scss';
 @import './modules/molecules/side-header-list-item.scss';
 @import './modules/molecules/serch-box.scss';
+@import './modules/molecules/home-contents-header.scss';
 // organisms
 @import './modules/organisms/login-form.scss';
 @import './modules/organisms/create-account-form.scss';
 @import './modules/organisms/side-header.scss';
 @import './modules/organisms/sub-contents.scss';
+@import './modules/organisms/home-contents-tweet-box.scss';
 
 // 各ページ
 @import './pages/top.scss';

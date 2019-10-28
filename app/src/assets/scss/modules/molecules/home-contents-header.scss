@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+#p-home__contents__header {
+	padding: 15px;
+	background: $key-bg-color;
+	border-bottom: 1px solid $border-color;
+	#header__title {
+		text-align: left;
+		font-size: 20px;
+		line-height: 1;
+	}
+}
