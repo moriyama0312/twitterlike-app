@@ -2,10 +2,11 @@
 
 .c-tweet {
 	background: $key-bg-color;
-	height: 150px;
+	height: 120px;
 	&__inner {
 		padding: 15px 20px 10px;
 		display: flex;
+		height: 100%;
 	}
 	&__icon {
 		width: 60px;
@@ -18,5 +19,9 @@
 			border-radius: 50%;
 			vertical-align: bottom;
 		}
+	}
+	&__contents {
+		flex: 1;
+		margin-left: 10px;
 	}
 }

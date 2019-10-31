@@ -6,7 +6,9 @@
 			</div>
 			<div class="c-tweet__contents">
 				<form>
-					<TextArea />
+					<TextArea
+						placeholder="いまどうしてる？"
+					/>
 					<TweetFooter />
 				</form>
 			</div>
