@@ -8,3 +8,10 @@
         color: $key-color;
     }
 }
+
+@mixin icon-hover {
+    transition: all .2s ease-in-out;
+    &:hover {
+        background: rgba(29, 161, 242, .1);
+    }
+}

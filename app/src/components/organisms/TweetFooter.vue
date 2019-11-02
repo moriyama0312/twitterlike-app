@@ -8,10 +8,13 @@
 		<div class="footer__actions">
 			<div class="footer__actions__inner">
 				<div class="state">
+					<div class="state__inner">
+					</div>
 				</div>
 				<Button
 					type="submit"
 					text="ツイート"
+					addClass="type-tweet"
 				/>
 			</div>
 		</div>

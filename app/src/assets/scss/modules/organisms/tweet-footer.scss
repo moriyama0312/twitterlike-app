@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+.c-tweet__contents__footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	.footer__options {
+		display: flex;
+		align-items: center;
+		> * {
+			margin-right: 10px;
+			width: 30px;
+			height: 30px;
+			padding: 5px;
+			box-sizing: content-box;
+			border-radius: 50%;
+			cursor: pointer;
+			@include icon-hover;
+			span {
+				color: $key-color;
+				vertical-align: middle;
+			}
+		}
+	}
+	.footer__actions {
+		&__inner {
+			display: flex;
+			align-items: center;
+			.state {
+				border-right: 1px solid $border-color;
+				align-self: stretch;
+				display: flex;
+				align-items: center;
+				margin-right: 10px;
+				&__inner {
+					width: 20px;
+					height: 20px;
+					border-radius: 50%;
+					background: #ffffff;
+					padding-right: 10px;
+				}
+			}
+			.c-button {
+				button {
+					padding: 6px 12px;
+				}
+			}
+		}
+	}
+}
