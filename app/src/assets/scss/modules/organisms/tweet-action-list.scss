@@ -1,0 +1,44 @@
+@charset "utf-8";
+
+.footer__action {
+	display: flex;
+	list-style: none;
+	> li {
+		width: calc(100% / 3);
+		text-align: left;
+		> span {
+			cursor: pointer;
+			color: $key-font-color-light;
+			.txt {
+				padding: 3px;
+			}
+			&.reply {
+				&:hover {
+					color: $key-color;
+					.txt {
+						background: rgba(29, 161, 242, .1);
+						border-radius: 50%;
+					}
+				}
+			}
+			&.retweet {
+				&:hover {
+					color: rgb(34,139,34);
+					.txt {
+						background: rgba(34,139,34, .1);
+						border-radius: 50%;
+					}
+				}
+			}
+			&.favorite {
+				&:hover {
+					color: rgb(220,20,60);
+					.txt {
+						background: rgba(220,20,60, .1);
+						border-radius: 50%;
+					}
+				}
+			}
+		}
+	}
+}

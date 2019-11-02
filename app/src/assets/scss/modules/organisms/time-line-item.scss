@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+.c-timeLine__item {
+	background: $key-bg-color;
+	border-bottom: 1px solid $border-color;
+	.item__inner {
+		padding: 15px 20px 10px;
+		display: flex;
+	}
+	.item__icon {
+		> a {
+			width: 60px;
+			height: 60px;
+			background: red;
+			border-radius: 50%;
+			display: block;
+		}
+	}
+	.item__contents {
+		margin-left: 10px;
+		flex: 1;
+		&__header {
+			text-align: left;
+			> span {
+				margin-right: 5px;
+			}
+			.header__name {
+				font-size: 16px;
+				color: $key-font-color;
+				font-weight: 600;
+			}
+			.header__id,
+			.header__time {
+				color: $key-font-color-light;
+			}
+		}
+		&__main {
+			text-align: left;
+			color: $key-font-color;
+			margin-bottom: 10px;
+		}
+	}
+}
