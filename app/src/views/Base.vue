@@ -13,6 +13,9 @@ export default {
 	components: {
 		SideHeader,
 		SubContents
+	},
+	beforeRouteEnter: (to, from, next) => {
+
 	}
 }
 </script>
