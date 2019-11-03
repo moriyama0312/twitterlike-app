@@ -21,8 +21,8 @@ export default {
 		HomeContentsTimeLine
 	},
 	methods: {
-		onTweet() {
-			
+		onTweet(contents) {
+			this.$store.dispatch('tweet', contents)
 		}
 	}
 }

@@ -5,7 +5,7 @@
 				<router-link :to="{name: 'profile'}"></router-link>
 			</div>
 			<div class="c-tweet__contents">
-				<form @submit="onTweet">
+				<form @submit="Tweet">
 					<TextArea
 						placeholder="いまどうしてる？"
 						v-model="textValue"
@@ -34,6 +34,15 @@ export default {
 	components: {
 		TextArea,
 		TweetFooter
+	},
+	methods: {
+		Tweet() {
+			let contents = {
+				text: textValue
+			}
+			onTweet(contents)
+			textValue = ''
+		}
 	}
 }
 </script>

@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import Login from './login/login'
+import Tweet from './tweet/tweet'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
 	modules: {
-		Login
+		Login,
+		Tweet
 	},
 	state: {
 		isLogin: false,
