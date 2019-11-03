@@ -5,7 +5,7 @@
 				<router-link :to="{name: 'profile'}"></router-link>
 			</div>
 			<div class="c-tweet__contents">
-				<form>
+				<form @submit="onTweet">
 					<TextArea
 						placeholder="いまどうしてる？"
 						v-model="textValue"
@@ -23,6 +23,12 @@ export default {
 	data() {
 		return {
 			textValue: ''
+		}
+	},
+	props: {
+		onTweet: {
+			require: true,
+			type: Function
 		}
 	},
 	components: {

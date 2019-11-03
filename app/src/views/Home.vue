@@ -2,7 +2,9 @@
 	<div id="p-home">
 		<div id="p-home__contents">
 			<HomeContentsHeader />
-			<HomeContentsTweetBox />
+			<HomeContentsTweetBox 
+				:onTweet="onTweet"
+			/>
 			<HomeContentsTimeLine />
 		</div>
 	</div>
@@ -17,6 +19,11 @@ export default {
 		HomeContentsHeader,
 		HomeContentsTweetBox,
 		HomeContentsTimeLine
+	},
+	methods: {
+		onTweet() {
+			
+		}
 	}
 }
 </script>
