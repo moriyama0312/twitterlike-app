@@ -1,3 +1,4 @@
+import tweetFuncs from './methods'
 export default {
 	namespaced: true,
 	state: {
@@ -10,6 +11,8 @@ export default {
 
 	},
 	actions: {
-		
+		tweet: (ctx, contents) => {
+			tweetFuncs.addTweet(contents)
+		}
 	}
 }

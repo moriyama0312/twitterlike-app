@@ -22,7 +22,7 @@ export default {
 	},
 	methods: {
 		onTweet(contents) {
-			this.$store.dispatch('tweet', contents)
+			this.$store.dispatch('tweet/tweet', contents)
 		}
 	}
 }
