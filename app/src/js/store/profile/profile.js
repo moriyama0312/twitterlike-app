@@ -11,6 +11,8 @@ export default {
 
 	},
 	actions: {
-
+		getProfile: (ctx, token) => {
+			profileFuncs.getProfile(token)
+		}
 	}
 }

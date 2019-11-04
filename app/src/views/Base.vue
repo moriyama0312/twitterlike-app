@@ -17,7 +17,7 @@ export default {
 	created() {
 		const token = localStorage.token
 		this.$store.dispatch('Login/login', {token})
-		this.$store.dispatch('Profile/get', {token})
+		this.$store.dispatch('Profile/getProfile', {token})
 		// this.$store.dispatch('Tweet/get', {token})
 	},
 	beforeRouteEnter: (to, from, next) => {
