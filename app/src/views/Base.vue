@@ -14,8 +14,18 @@ export default {
 		SideHeader,
 		SubContents
 	},
+	created() {
+		const token = localStorage.token
+		this.$store.dispatch('Login/login', {token})
+		this.$store.dispatch('Profile/get', {token})
+		// this.$store.dispatch('Tweet/get', {token})
+	},
 	beforeRouteEnter: (to, from, next) => {
-
+		if(!localStorage.token) {
+			next('/')
+		}else {
+			next()
+		}
 	}
 }
 </script>
