@@ -21,6 +21,8 @@ export default new Vuex.Store({
 	mutations: {
 		onLogin: (state, data) => {
 			state.isLogin = true
+		},
+		setProfile: (state, data) => {
 			state.userInfo = data
 		}
 	}

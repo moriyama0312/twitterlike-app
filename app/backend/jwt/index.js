@@ -21,7 +21,6 @@ export default {
 			if(err) {
 				console.log("jwt error");
 			}else {
-				console.log(decoded);
 				const id = {id: decoded.sub};
 				return id;
 			}

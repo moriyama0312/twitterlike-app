@@ -11,8 +11,11 @@ export default {
 
 	},
 	actions: {
-		getProfile: (ctx, token) => {
-			profileFuncs.getProfile(token)
+		getProfile: (ctx, data) => {
+			return profileFuncs.getProfile(data.token)
+				.then((res) => {
+					ctx.commit('setProfile', res, {root: true})
+				})
 		}
 	}
 }

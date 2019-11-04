@@ -1,6 +1,6 @@
 export default {
 	getProfile: (token) => {
-		fetch('/user/profile', {
+		return fetch('/user/profile', {
 			method: 'GET',
 			headers: {
 				Accept: 'application/json',
