@@ -4,8 +4,9 @@ export default {
 		
 	},
 	getTweet: (token) => {
-		io.emit('getTweet', token)
-		io.on('getTweet', (data) => {
+		const socket = io()
+		socket.emit('getTweet', token)
+		socket.on('getTweet', (data) => {
 			console.log(data)
 		})
 	}

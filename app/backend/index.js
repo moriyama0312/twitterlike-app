@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import socketIO from 'socket.io';
 import dbCheck from './db/dbCheck';
 import getProfile from './get/profile';
+import getTweet from './get/tweet';
 import jwtFunc from './jwt/index.js';
 import toolFuncs from './tools/func.js';
 
@@ -42,13 +43,11 @@ export default (app, http) => {
 	let io = socketIO(http);
 	io.on('connection', socket => {
 		socket.on('getTweet', async (data) => {
-			const token = toolFuncs.removeBearer(req.headers.authorization);
-			const id = await jwtFunc.decode(token);
+			const id = await jwtFunc.decode(data.token);
 			getTweet(id, (data, err='') => {
 				if(err) {
 					socket.emit('getTweet', err);
 				}else {
-					console.log(data);
 					socket.emit('getTweet', data);
 				}
 			});

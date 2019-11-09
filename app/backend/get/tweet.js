@@ -13,7 +13,7 @@ export default (data, callback) => {
 		if(err) {
 			callback(null, 'mysql error!');
 		}else {
-			callback(results[0]);
+			callback(results);
 		}
 	});
 }
