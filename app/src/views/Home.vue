@@ -5,7 +5,9 @@
 			<HomeContentsTweetBox 
 				:onTweet="onTweet"
 			/>
-			<HomeContentsTimeLine />
+			<HomeContentsTimeLine 
+				:tweet="tweet"
+			/>
 		</div>
 	</div>
 </template>
@@ -15,6 +17,11 @@ import HomeContentsTweetBox from '@/components/organisms/HomeContentsTweetBox.vu
 import HomeContentsTimeLine from '@/components/organisms/HomeContentsTimeLine.vue'
 
 export default {
+	data() {
+		return {
+			tweet: []
+		}
+	},
 	components: {
 		HomeContentsHeader,
 		HomeContentsTweetBox,
@@ -23,6 +30,11 @@ export default {
 	methods: {
 		onTweet(contents) {
 			this.$store.dispatch('tweet/tweet', contents)
+		}
+	},
+	computed: {
+		getTweet() {
+			this.tweet = this.$store.state.Tweet.tweet
 		}
 	}
 }

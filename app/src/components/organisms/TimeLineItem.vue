@@ -6,18 +6,17 @@
 			</div>
 			<div class="item__contents">
 				<div class="item__contents__header">
-					<span class="header__name">{{ tweet.accountInfo.name }}</span>
-					<span class="header__id">@{{ tweet.accountInfo.id }}</span>
-					<span class="header__time">・</span>
+					<span class="header__name"></span>
+					<span class="header__id">@{{ item.user_id }}</span>
+					<span class="header__time">・{{ item.tweet_time }}</span>
 				</div>
 				<div class="item__contents__main">
-					<span class="main__text">{{ tweet.contents.text }}</span>
-					<span class="main__img">{{ tweet.contents.img }}</span>
+					<span class="main__text">{{ item.txt }}</span>
+					<span class="main__img"></span>
 				</div>
 				<div class="item__contents__footer">
 					<div class="footer__inner">
 						<TweetActionList
-							:tweet="tweet"
 						/>
 					</div>
 				</div>
@@ -28,7 +27,7 @@
 <script>
 import TweetActionList from '@/components/organisms/TweetActionList.vue'
 export default {
-	props: ['tweet'],
+	props: ['item'],
 	components: {
 		TweetActionList
 	}
