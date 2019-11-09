@@ -45,6 +45,7 @@ export default (app, http) => {
 			if(err) {
 				res.send(err);
 			}else {
+				console.log(data);
 				res.send(JSON.stringify(data));
 			}
 		});
