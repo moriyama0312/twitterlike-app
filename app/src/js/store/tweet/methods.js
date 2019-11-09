@@ -3,11 +3,11 @@ export default {
 	addTweet: () => {
 		
 	},
-	getTweet: (token) => {
+	getTweet: (token, callback) => {
 		const socket = io()
 		socket.emit('getTweet', token)
 		socket.on('getTweet', (data) => {
-			console.log(data)
+			callback(data)
 		})
 	}
 }
