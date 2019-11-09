@@ -1,11 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-// import socketIO from 'socket.io';
+import socketIO from 'socket.io';
 import dbCheck from './db/dbCheck';
 import getProfile from './get/profile';
 import jwtFunc from './jwt/index.js';
 import toolFuncs from './tools/func.js';
-import { DH_UNABLE_TO_CHECK_GENERATOR } from 'constants';
 
 export default (app, http) => {
 	app.use(express.json());
@@ -38,34 +37,21 @@ export default (app, http) => {
 			}
 		});
 	});
-	app.get('/tweet', async (req, res) => {
-		const token = toolFuncs.removeBearer(req.headers.authorization);
-		const id = await jwtFunc.decode(token);
-		getTweet(id, (data, err='') => {
-			if(err) {
-				res.send(err);
-			}else {
-				console.log(data);
-				res.send(JSON.stringify(data));
-			}
-		});
-	});
-	//
-	// app.get('/foo', (req, res) => {
-	//   res.json({msg: 'foo'});
-	// });
-	//
-	// app.post('/bar', (req, res) => {
-	//   res.json(req.body);
-	// });
-	// 
 	// optional support for socket.io
 	// 
-	// let io = socketIO(http);
-	// io.on("connection", client => {
-	// 	client.on("message", function(data) {
-	// 	// do something
-	// 	});
-	// 	// client.emit("message", "Welcome");
-	// });
+	let io = socketIO(http);
+	io.on('connection', socket => {
+		socket.on('getTweet', async (data) => {
+			const token = toolFuncs.removeBearer(req.headers.authorization);
+			const id = await jwtFunc.decode(token);
+			getTweet(id, (data, err='') => {
+				if(err) {
+					socket.emit('getTweet', err);
+				}else {
+					console.log(data);
+					socket.emit('getTweet', data);
+				}
+			});
+		});
+	});
 }

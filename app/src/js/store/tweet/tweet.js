@@ -15,7 +15,7 @@ export default {
 			tweetFuncs.addTweet(contents)
 		},
 		getTweet: (ctx, data) => {
-			
+			tweetFuncs.getTweet(data)
 		}
 	}
 }
