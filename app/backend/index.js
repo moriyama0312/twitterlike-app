@@ -38,6 +38,17 @@ export default (app, http) => {
 			}
 		});
 	});
+	app.get('/tweet', async (req, res) => {
+		const token = toolFuncs.removeBearer(req.headers.authorization);
+		const id = await jwtFunc.decode(token);
+		getTweet(id, (data, err='') => {
+			if(err) {
+				res.send(err);
+			}else {
+				res.send(JSON.stringify(data));
+			}
+		});
+	});
 	//
 	// app.get('/foo', (req, res) => {
 	//   res.json({msg: 'foo'});
