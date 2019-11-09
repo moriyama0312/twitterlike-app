@@ -13,6 +13,9 @@ export default {
 	actions: {
 		tweet: (ctx, contents) => {
 			tweetFuncs.addTweet(contents)
+		},
+		getTweet: (ctx, data) => {
+			
 		}
 	}
 }
