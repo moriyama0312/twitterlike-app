@@ -10,7 +10,22 @@ export default {
 		}
 	},
 	getters: {
-
+		sortTweet: (state) => {
+			let tweetArray = state.tweet
+			let tmp = tweetArray[0]
+			for(let i = 0; i < state.tweet.length - 1; i++) {
+				for(let j = state.tweet.length - 1; j > i; j--) {
+					if(tweetArray[j].birth > tweetArray[j-1].birth) {
+						tmp = tweetArray[j-1]
+						tweetArray[j-1] = tweetArray[j]
+						tweetArray[j] = tmp
+					}
+				}
+				if(i === state.tweet.length - 2) {
+					return tweetArray
+				}
+			}
+		}
 	},
 	actions: {
 		tweet: (ctx, contents) => {

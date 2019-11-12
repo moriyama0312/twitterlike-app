@@ -2,7 +2,7 @@
 	<div class="c-timeLine">
 		<div class="c-timeLine__inner">
 			<TimeLineItem
-				v-for="item in tweet"
+				v-for="item in sortTimeLine"
 				:key="item.tweet_id"
 				:item="item"
 			/>
@@ -19,6 +19,11 @@ export default {
 	},
 	components: {
 		TimeLineItem
+	},
+	computed: {
+		sortTimeLine() {
+			return this.$store.getters('Tweet/sortTweet')
+		}
 	}
 	
 }
