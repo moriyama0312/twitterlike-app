@@ -9,7 +9,8 @@ export default (data, callback) => {
 				WHERE tweet_all_test.user_id IN (
 					SELECT followed_id
 					FROM followers_test
-					WHERE following_id = '${id}');`;
+					WHERE following_id = '${id}')
+				OR tweet_all_test.user_id = '${id}';`;
 	
 	connection.query(sql, (err, results, field) => {
 		if(err) {
