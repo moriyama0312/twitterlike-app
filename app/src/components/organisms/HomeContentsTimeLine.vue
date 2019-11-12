@@ -22,7 +22,7 @@ export default {
 	},
 	computed: {
 		sortTimeLine() {
-			return this.$store.getters('Tweet/sortTweet')
+			return this.$store.getters['Tweet/sortTweet']
 		}
 	}
 	
