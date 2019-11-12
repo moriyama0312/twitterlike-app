@@ -3,4 +3,8 @@
 #p-home {
 	flex: 1;
 	height: 100%;
+	overflow: scroll;
+	&__contents {
+		position: relative;
+	}
 }
