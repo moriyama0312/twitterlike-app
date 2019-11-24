@@ -29,7 +29,9 @@ export default {
 	},
 	actions: {
 		tweet: (ctx, contents) => {
-			tweetFuncs.addTweet(contents)
+			contents = Object.assign({}, contents, {token:localStorage.token})
+			console.log(contents)
+			// tweetFuncs.addTweet(contents)
 		},
 		getTweet: (ctx, data) => {
 			tweetFuncs.getTweet(data, (data) => {

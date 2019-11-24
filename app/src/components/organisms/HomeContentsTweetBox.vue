@@ -5,7 +5,7 @@
 				<router-link :to="{name: 'profile'}"></router-link>
 			</div>
 			<div class="c-tweet__contents">
-				<form @submit="Tweet">
+				<form @submit.prevent="Tweet">
 					<TextArea
 						placeholder="いまどうしてる？"
 						v-model="textValue"
@@ -38,10 +38,11 @@ export default {
 	methods: {
 		Tweet() {
 			let contents = {
-				text: textValue
+				text: this.textValue
 			}
-			onTweet(contents)
-			textValue = ''
+			console.log(contents)
+			this.onTweet(contents)
+			this.textValue = ''
 		}
 	}
 }
