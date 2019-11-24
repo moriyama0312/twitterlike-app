@@ -11,17 +11,17 @@ export default {
 	},
 	getters: {
 		sortTweet: (state) => {
-			let tweetArray = state.tweet
+			let tweetArray = Array.from(state.tweet)
 			let tmp = tweetArray[0]
-			for(let i = 0; i < state.tweet.length - 1; i++) {
-				for(let j = state.tweet.length - 1; j > i; j--) {
-					if(tweetArray[j].birth > tweetArray[j-1].birth) {
+			for(let i = 0; i < tweetArray.length - 1; i++) {
+				for(let j = tweetArray.length - 1; j > i; j--) {
+					if(tweetArray[j].tweet_time > tweetArray[j-1].tweet_time) {
 						tmp = tweetArray[j-1]
 						tweetArray[j-1] = tweetArray[j]
 						tweetArray[j] = tmp
 					}
 				}
-				if(i === state.tweet.length - 2) {
+				if(i === tweetArray.length - 2) {
 					return tweetArray
 				}
 			}
