@@ -4,6 +4,7 @@ import socketIO from 'socket.io';
 import dbCheck from './db/dbCheck';
 import getProfile from './get/profile';
 import getTweet from './get/tweet';
+import addTweet from './post/addTweet';
 import jwtFunc from './jwt/index.js';
 import toolFuncs from './tools/func.js';
 
@@ -50,6 +51,12 @@ export default (app, http) => {
 				}else {
 					socket.emit('getTweet', data);
 				}
+			});
+		});
+		socket.on('addTweet', async (data) => {
+			const id = await jwtFunc.decode(data.token);
+			addTweet(data.contents, id, (data, err='') => {
+
 			});
 		});
 	});

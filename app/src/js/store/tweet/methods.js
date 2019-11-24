@@ -1,7 +1,8 @@
 import io from 'socket.io-client'
 export default {
-	addTweet: () => {
-		
+	addTweet: (info, callback) => {
+		const socket = io()
+		socket.emit('addTweet', info)
 	},
 	getTweet: (token, callback) => {
 		const socket = io()
