@@ -9,5 +9,5 @@ export default(contents, id, callback) => {
 		}else {
 			callback(results[0]);
 		}
-	})
+	});
 }

@@ -22,7 +22,8 @@ import TweetFooter from '@/components/organisms/TweetFooter.vue'
 export default {
 	data() {
 		return {
-			textValue: ''
+			textValue: '',
+			tweetTime: ''
 		}
 	},
 	props: {
@@ -37,12 +38,23 @@ export default {
 	},
 	methods: {
 		Tweet() {
+			this.tweet_time = setTimeNow()
 			let contents = {
-				text: this.textValue
+				text: this.textValue,
+				images: {
+					img01: null,
+					img02: null,
+					img03: null,
+					img04: null
+				},
+				tweet_time: this.tweetTime
 			}
 			console.log(contents)
 			this.onTweet(contents)
 			this.textValue = ''
+		},
+		setTimeNow() {
+			
 		}
 	}
 }
