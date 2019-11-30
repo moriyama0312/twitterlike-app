@@ -3,6 +3,7 @@
 .c-tweet {
 	background: $key-bg-color;
 	height: 120px;
+	outline: 10px solid;
 	&__inner {
 		padding: 15px 20px 10px;
 		display: flex;
