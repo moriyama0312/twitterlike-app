@@ -38,7 +38,7 @@ export default {
 	},
 	methods: {
 		Tweet() {
-			setTimeNow()
+			this.setTimeNow()
 			let contents = {
 				text: this.textValue,
 				images: {
@@ -52,21 +52,26 @@ export default {
 			console.log(contents)
 			this.onTweet(contents)
 			this.textValue = ''
+			this.tweetTime = ''
 		},
 		setTimeNow() {
 			let date = new Date()
 			let year = date.getFullYear()
-			let month = shapeData(Number(date.getMonth())+1)
-			let day = shapeData(Number(date.getDate()))
-			let hour = shapeData(Number(date.getHours()))
-			let min = shapeData(Number(date.getMinutes()))
-			let sec = shapeData(Number(date.getSeconds()))
-			this.tweetTime = `${year} + '-' + ${month} + '-' + ${day} + ' ' + ${hour} + ':' + ${min} + ':' + ${sec}`
+			let month = this.shapeData(Number(date.getMonth())+1)
+			let day = this.shapeData(Number(date.getDate()))
+			let hour = this.shapeData(Number(date.getHours()))
+			let min = this.shapeData(Number(date.getMinutes()))
+			let sec = this.shapeData(Number(date.getSeconds()))
+			this.tweetTime = year + '-' + month + '-' + day + ' ' + hour + ':' + min + ':' + sec
 		},
 		shapeData(data) {
+			let strData = ''
 			if(data < 10) {
-				
+				strData = '0' + String(data)
+			}else {
+				strData = String(data)
 			}
+			return strData
 		}
 	}
 }
