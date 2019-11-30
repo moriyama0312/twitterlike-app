@@ -47,7 +47,10 @@ export default {
 					img03: null,
 					img04: null
 				},
-				tweet_time: this.tweetTime
+				tweetTime: this.tweetTime,
+				replyNum: 0,
+				retweetNum: 0,
+				favoriteNum: 0
 			}
 			console.log(contents)
 			this.onTweet(contents)

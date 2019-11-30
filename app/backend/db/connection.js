@@ -1,24 +1,14 @@
-const mysql = require('mysql');
+const mysql = require('mysql2/promise');
+const mysqlConnection = async () => {
+	// DB定義
+	const config = {
+		host: 'localhost',
+		user: 'root',
+		password: 'tb0fm3Ku1ri2',
+		database: 'twitter_db'
+	};
+	const connection = await mysql.createConnection(config);
 
-// DB定義
-const config = {
-	host: 'localhost',
-	user: 'root',
-	password: 'tb0fm3Ku1ri2',
-	database: 'twitter_db'
-};
-
-let connection = mysql.createConnection(config);
-
-connection.connect((err) => {
-	if(err) {
-		console.log("error connection :" + err.stack);
-		return;
-	}
-	console.log("connected as id" + connection.threadID);
-});
-
-export default connection;
-
-
-
+	return connection;
+}
+export default mysqlConnection;

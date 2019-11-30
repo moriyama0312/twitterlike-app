@@ -1,25 +1,19 @@
-import connection from './connection.js';
+import mysqlConnection from './connection';
 
-export default (userInfo, callback) => {
+export default async (userInfo) => {
+	const connection = await mysqlConnection()
 	const id = userInfo.id;
 	const pw = userInfo.password;
 	const sql = `SELECT *
 				FROM user_info_test
 				WHERE user_info_test.user_id = '${id}';`;
 
-	connection.query(sql, (err, results, fields) => {
-		if(err) {
-			console.log(err);
-			callback(null, 'mysql error!');
-		}else {
-			if(validateDB(results[0], id, pw)) {
-				callback(results[0]);
-			}else {
-				callback(null, 'validate error!');
-			}
-		}
-	});
-
+	const [row, fields] = await connection.execute(sql);
+	if(validateDB(row[0], id, pw)) {
+		return row[0];
+	}else {
+		return false;
+	}
 }
 
 const validateDB = (data, id, pw) => {

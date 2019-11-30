@@ -13,15 +13,14 @@ export default (app, http) => {
 	app.use(bodyParser.urlencoded({extended: true}));
   	app.use(bodyParser.json());
 
-	app.post('/user/token', (req, res) => {
-		dbCheck(req.body, (data, err='') => {
-			if(err) {
-				res.send(err);
-			}else {
-				const token = jwtFunc.encode(req.body);
-				res.send(JSON.stringify(token));
-			}
-		});
+	app.post('/user/token', async (req, res) => {
+		const check = await dbCheck(req.body);
+		if(check) {
+			const token = await jwtFunc.encode(req.body);
+			res.send(JSON.stringify(token));
+		}else {
+			res.send('validate err!');
+		}
 	});
 	app.get('/user/id', async (req, res) => {
 		const token = toolFuncs.removeBearer(req.headers.authorization);
@@ -31,13 +30,8 @@ export default (app, http) => {
 	app.get('/user/profile', async (req, res) => {
 		const token = toolFuncs.removeBearer(req.headers.authorization);
 		const id = await jwtFunc.decode(token);
-		getProfile(id, (data, err='') => {
-			if(err) {
-				res.send(err);
-			}else {
-				res.send(JSON.stringify(data));
-			}
-		});
+		const profile = await getProfile(id);
+		res.send(JSON.stringify(profile));
 	});
 	// optional support for socket.io
 	// 
@@ -45,17 +39,13 @@ export default (app, http) => {
 	io.on('connection', socket => {
 		socket.on('getTweet', async (data) => {
 			const id = await jwtFunc.decode(data.token);
-			getTweet(id, (data, err='') => {
-				if(err) {
-					socket.emit('getTweet', err);
-				}else {
-					socket.emit('getTweet', data);
-				}
-			});
+			const tweet = await getTweet(id);
+			socket.emit('getTweet', tweet);
 		});
 		socket.on('addTweet', async (data) => {
+			console.log(data)
 			const id = await jwtFunc.decode(data.token);
-			addTweet(data.contents, id, (data, err='') => {
+			addTweet(data, id, (data, err='') => {
 
 			});
 		});

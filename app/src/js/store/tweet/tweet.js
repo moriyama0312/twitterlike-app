@@ -31,7 +31,7 @@ export default {
 		tweet: (ctx, contents) => {
 			contents = Object.assign({}, contents, {token:localStorage.token})
 			console.log(contents)
-			// tweetFuncs.addTweet(contents)
+			tweetFuncs.addTweet(contents)
 		},
 		getTweet: (ctx, data) => {
 			tweetFuncs.getTweet(data, (data) => {

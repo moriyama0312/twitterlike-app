@@ -1,6 +1,7 @@
-import connection from '../db/connection';
+import mysqlConnection from '../db/connection';
 
-export default (data, callback) => {
+export default async (data) => {
+	const connection = await mysqlConnection();
 	const id = data.id;
 	const sql = `SELECT *
 				FROM tweet_all_test
@@ -12,11 +13,7 @@ export default (data, callback) => {
 					WHERE following_id = '${id}')
 				OR tweet_all_test.user_id = '${id}';`;
 	
-	connection.query(sql, (err, results, field) => {
-		if(err) {
-			callback(null, 'mysql error!');
-		}else {
-			callback(results);
-		}
-	});
+	const [row, fields] = await connection.execute(sql);
+
+	return row;
 }
