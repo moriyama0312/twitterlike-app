@@ -1,6 +1,9 @@
 <template>
 	<div class="c-timeLine__item">
-		<div class="item__inner">
+		<router-link
+			:to="{name: 'tweet-item-detail', params: {userId: item.user_id, tweetId: item.tweet_id}}"
+			class="item__inner"
+		>
 			<div class="item__icon">
 				<router-link :to="{path: '/'}"></router-link>
 			</div>
@@ -22,7 +25,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</router-link>
 	</div>
 </template>
 <script>

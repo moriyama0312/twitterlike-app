@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Top from '@/views/Top.vue'
 import Base from '@/views/Base.vue'
 import Home from '@/views/Home.vue'
+import TweetItemDetail from '@/views/TweetItemDetail'
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ export default new Router({
 					path: '',
 					name: 'home',
 					component: Home
+				},
+				{
+					path: '/:userId/status/:tweetId',
+					name: 'tweet-item-detail',
+					component: TweetItemDetail
 				}
 			]
 		}
