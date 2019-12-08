@@ -28,7 +28,8 @@ export default new Router({
 				{
 					path: '/:userId/status/:tweetId',
 					name: 'tweet-item-detail',
-					component: TweetItemDetail
+					component: TweetItemDetail,
+					props: true
 				}
 			]
 		}
