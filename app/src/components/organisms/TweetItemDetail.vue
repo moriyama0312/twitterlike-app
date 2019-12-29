@@ -24,12 +24,12 @@
 				<li
 					v-if="!(detail.retweet_num === 0)"
 				>
-					<span class="retweet">件の</span>リツイート
+					<span class="retweet">{{ detail.retweet_num }}件の</span>リツイート
 				</li>
 				<li
 					v-if="!(detail.favorite_num === 0)"
 				>
-					<span class="favorite">件の</span>いいね
+					<span class="favorite">{{ detail.favorite_num }}件の</span>いいね
 				</li>
 			</ul>
 			<div class="detail__footer">

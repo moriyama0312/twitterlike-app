@@ -1,0 +1,72 @@
+@charset 'utf-8';
+@import '../../base/variation.scss';
+
+.tweet-item-detail {
+	background: $key-bg-color;
+	color: $key-font-color;
+	&__inner {
+		padding: 10px 15px 0;
+	}
+	.detail__header {
+		display: flex;
+		align-items: center;
+		&__icon {
+			a {
+				display: inline-block;
+				vertical-align: bottom;
+				width: $icon-width;
+				height: $icon-height;
+				background: red;
+				border-radius: 50%;
+			}
+		}
+		&__account {
+			margin-left: 10px;
+			> * {
+				display: block;
+				text-align: left;
+			}
+		}
+	}
+	.detail__main {
+		&__text {
+			display: block;
+			text-align: left;
+			font-size: 26px;
+		}
+	}
+	.detail__time {
+		text-align: left;
+		margin-top: 10px;
+		.time {
+			color: $key-font-color-light;
+			font-size: 14px;
+		}
+	}
+	.detail__reaction {
+		list-style: none;
+		display: flex;
+		margin-top: 10px;
+		padding: 10px 0;
+		border-top: 1px solid $border-color;
+		> li {
+			margin-right: 20px;
+			color: $key-font-color-light;
+			span {
+				font-weight: 600;
+				color: $key-font-color;
+			}
+		}
+	}
+	.detail__footer {
+		border-top: 1px solid $border-color;
+		&__inner {
+			padding: 10px 0;
+		}
+		.footer__action {
+			> li {
+				text-align: center;
+			}
+		}
+	}
+}
