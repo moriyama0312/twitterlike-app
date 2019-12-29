@@ -1,6 +1,5 @@
 export default {
 	getToken: (userInfo) => {
-		console.log(userInfo);
 		return fetch('/user/token', {
 			method: 'POST',
 			headers: {

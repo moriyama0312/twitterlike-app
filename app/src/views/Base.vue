@@ -24,14 +24,9 @@ export default {
 	async created() {
 		const token = localStorage.token
 		await this.$store.dispatch('Login/login', {token})
-		console.log('finish login')
 		await this.$store.dispatch('Profile/getProfile', {token})
-		console.log('finish profile')
 		await this.$store.dispatch('Tweet/getTweet', {token})
-		console.log('gettweet')
 		this.isLoading = !this.isLoading
-		console.log('created')
-		console.log(this.$store.state.Tweet.tweet)
 	},
 	beforeRouteEnter: (to, from, next) => {
 		if(!localStorage.token) {

@@ -6,7 +6,6 @@ export default {
 	},
 	mutations: {
 		setTweet: (state, data) => {
-			console.log('setset')
 			state.tweet = data
 		}
 	},
@@ -37,16 +36,13 @@ export default {
 			// 	return item.tweet_id === Number(tweetId)
 			// })
 			// console.log(hoge)
-			console.log(state.tweet)
 			let result = state.tweet.filter(item => item.tweet_id === Number(tweetId))[0]
-			console.log(result)
 			return result
 		}
 	},
 	actions: {
 		tweet: (ctx, contents) => {
 			contents = Object.assign({}, contents, {token:localStorage.token})
-			console.log(contents)
 			tweetFuncs.addTweet(contents)
 		},
 		getTweet: async (ctx, data) => {
