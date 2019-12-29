@@ -20,9 +20,11 @@ export default new Vuex.Store({
 	},
 	mutations: {
 		onLogin: (state, data) => {
+			console.log('onlogoin')
 			state.isLogin = true
 		},
 		setProfile: (state, data) => {
+			console.log('setprofile')
 			state.userInfo = data
 		}
 	}

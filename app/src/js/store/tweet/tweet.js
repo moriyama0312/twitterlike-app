@@ -6,6 +6,7 @@ export default {
 	},
 	mutations: {
 		setTweet: (state, data) => {
+			console.log('setset')
 			state.tweet = data
 		}
 	},
@@ -25,6 +26,21 @@ export default {
 					return tweetArray
 				}
 			}
+		},
+		pickTweet: (state) => (tweetId) => {
+			// console.log(typeof tweetId)
+			// console.log(state)
+			// console.log(state.tweet)
+			// let hoge = state.tweet.filter((item) => {
+			// 	console.log("aaaa")
+			// 	console.log(item)
+			// 	return item.tweet_id === Number(tweetId)
+			// })
+			// console.log(hoge)
+			console.log(state.tweet)
+			let result = state.tweet.filter(item => item.tweet_id === Number(tweetId))[0]
+			console.log(result)
+			return result
 		}
 	},
 	actions: {
@@ -33,10 +49,11 @@ export default {
 			console.log(contents)
 			tweetFuncs.addTweet(contents)
 		},
-		getTweet: (ctx, data) => {
-			tweetFuncs.getTweet(data, (data) => {
-				ctx.commit('setTweet', data)
-			})
+		getTweet: async (ctx, data) => {
+			return await tweetFuncs.getTweet(data)
+				.then((res) => {
+					ctx.commit('setTweet', res)
+				})
 		}
 	}
 }
