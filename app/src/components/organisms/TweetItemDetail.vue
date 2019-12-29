@@ -6,24 +6,36 @@
 					<router-link :to="{path: '/'}"></router-link>
 				</div>
 				<div class="detail__header__account">
-					<span class="account__name"></span>
-					<span class="account__id"></span>
+					<span class="account__name">{{ detail.name }}</span>
+					<span class="account__id">{{ detail.user_id }}</span>
 				</div>
 			</div>
 			<div class="detail__main">
-				<span class="detail__main__text"></span>
+				<span class="detail__main__text">{{ detail.txt }}</span>
 				<span class="detail__main__img"></span>
 			</div>
 			<div class="detail__time">
-				<span class="time"></span>
+				<span class="time">{{ detail.tweet_time }}</span>
 			</div>
-			<div class="detail__favorite">
-				<span class="favorite">件の</span>いいね
-			</div>
+			<ul
+				v-if="!(detail.retweet_num === 0 && detail.favorite_num === 0)"
+				class="detail__reaction"
+			>
+				<li
+					v-if="!(detail.retweet_num === 0)"
+				>
+					<span class="retweet">件の</span>リツイート
+				</li>
+				<li
+					v-if="!(detail.favorite_num === 0)"
+				>
+					<span class="favorite">件の</span>いいね
+				</li>
+			</ul>
 			<div class="detail__footer">
 				<div class="detail__footer__inner">
 					<TweetActionList
-						:detail="detail"
+						:item="detail"
 					/>
 				</div>
 			</div>
@@ -35,7 +47,6 @@ import TweetActionList from '@/components/organisms/TweetActionList.vue'
 export default {
 	data() {
 		return {
-			// detail: this.setTweetDetailInfo
 			detail: []
 		}
 	},
@@ -43,17 +54,8 @@ export default {
 	components: {
 		TweetActionList
 	},
-	mounted() {
-		this.$nextTick(() => {
-			console.log('mount')
-			this.detail = this.$store.getters['Tweet/pickTweet'](this.tweetId)
-		})
-		// this.detail = this.$store.getters['Tweet/pickTweet'](this.tweetId)
-	},
-	computed: {
-		setTweetDetailInfo() {
-			return this.$store.getters['Tweet/pickTweet'](this.tweetId)
-		}
+	created() {
+		this.detail = this.$store.getters['Tweet/pickTweet'](this.tweetId)
 	}
 }
 </script>

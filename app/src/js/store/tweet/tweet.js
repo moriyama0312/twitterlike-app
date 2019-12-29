@@ -27,15 +27,6 @@ export default {
 			}
 		},
 		pickTweet: (state) => (tweetId) => {
-			// console.log(typeof tweetId)
-			// console.log(state)
-			// console.log(state.tweet)
-			// let hoge = state.tweet.filter((item) => {
-			// 	console.log("aaaa")
-			// 	console.log(item)
-			// 	return item.tweet_id === Number(tweetId)
-			// })
-			// console.log(hoge)
 			let result = state.tweet.filter(item => item.tweet_id === Number(tweetId))[0]
 			return result
 		}
