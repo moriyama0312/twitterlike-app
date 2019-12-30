@@ -21,5 +21,23 @@ export default (type, payload={}) => {
 		case 'UPDATE_MAX_TWEET_ID':
 			return `UPDATE max_tweet_id_test
 					SET max_id = ${payload.maxId};`;
+		case 'GET_TWEET':
+			if(payload.maxId === -1) {
+				return `SELECT *
+						FROM tweet_all_test
+						JOIN user_info_test
+						ON tweet_all_test.user_id = user_info_test.user_id
+						WHERE tweet_all_test.user_id IN (
+							SELECT followed_id
+							FROM followers_test
+							WHERE following_id = '${payload.id}')
+						OR tweet_all_test.user_id = '${payload.id}';`;
+			}else {
+				return `SELECT *
+						FROM tweet_all_test
+						JOIN user_info_test
+						ON tweet_all_test.user_id = user_info_test.user_id
+						WHERE tweet_all_test.tweet_id = ${payload.maxId};`;
+			}
 	}
 }

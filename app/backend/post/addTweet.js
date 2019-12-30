@@ -16,4 +16,6 @@ export default async (contents, id) => {
 
 	sql = sqlGenerator('UPDATE_MAX_TWEET_ID', {maxId: maxId});
 	[row, fields] = await connection.execute(sql);
+
+	return maxId;
 }

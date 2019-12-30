@@ -43,11 +43,10 @@ export default (app, http) => {
 			socket.emit('getTweet', tweet);
 		});
 		socket.on('addTweet', async (data) => {
-			console.log(data)
 			const id = await jwtFunc.decode(data.token);
-			addTweet(data, id, (data, err='') => {
-
-			});
+			const maxId = await addTweet(data, id);
+			const tweet = await getTweet(id, maxId);
+			socket.emit('addTweet', tweet);
 		});
 	});
 }

@@ -1,17 +1,11 @@
 import mysqlConnection from '../db/connection';
+import sqlGenerator from '../sql/sqlGenerator';
 
-export default async (data) => {
+export default async (data, maxId = -1) => {
 	const connection = await mysqlConnection();
 	const id = data.id;
-	const sql = `SELECT *
-				FROM tweet_all_test
-				JOIN user_info_test
-				ON tweet_all_test.user_id = user_info_test.user_id
-				WHERE tweet_all_test.user_id IN (
-					SELECT followed_id
-					FROM followers_test
-					WHERE following_id = '${id}')
-				OR tweet_all_test.user_id = '${id}';`;
+	const payload = Object.assign({}, {id: id}, {maxId: maxId});
+	const sql = sqlGenerator('GET_TWEET', payload);
 	
 	const [row, fields] = await connection.execute(sql);
 

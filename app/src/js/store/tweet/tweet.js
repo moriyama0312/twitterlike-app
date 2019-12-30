@@ -7,6 +7,9 @@ export default {
 	mutations: {
 		setTweet: (state, data) => {
 			state.tweet = data
+		},
+		addTweet: (state, data) => {
+			state.tweet.push(data)
 		}
 	},
 	getters: {
@@ -32,9 +35,10 @@ export default {
 		}
 	},
 	actions: {
-		tweet: (ctx, contents) => {
+		tweet: async (ctx, contents) => {
 			contents = Object.assign({}, contents, {token:localStorage.token})
-			tweetFuncs.addTweet(contents)
+			const addTweet = await tweetFuncs.addTweet(contents)
+			ctx.commit('addTweet', addTweet[0])
 		},
 		getTweet: async (ctx, data) => {
 			return await tweetFuncs.getTweet(data)

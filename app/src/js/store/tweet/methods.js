@@ -7,10 +7,19 @@ const getContentsBySocket = (socket, type, token) => {
 		})
 	})
 }
+const addContentsBySocket = (socket, type) => {
+	return new Promise(resolve => {
+		socket.on(type, (data) => {
+			resolve(data)
+		})
+	})
+}
 export default {
-	addTweet: (info, callback) => {
+	addTweet: async (info) => {
 		const socket = io()
 		socket.emit('addTweet', info)
+		const data = await addContentsBySocket(socket, 'addTweet')
+		return data
 	},
 	getTweet: async (token) => {
 		const socket = io()

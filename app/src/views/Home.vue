@@ -6,7 +6,7 @@
 				:onTweet="onTweet"
 			/>
 			<HomeContentsTimeLine 
-				:tweet="tweet"
+				:tweet="tweetArray"
 			/>
 		</div>
 	</div>
@@ -19,9 +19,10 @@ import HomeContentsTimeLine from '@/components/organisms/HomeContentsTimeLine.vu
 export default {
 	data() {
 		return {
-			tweet: []
+			tweet: this.getTweet
 		}
 	},
+	props: ['tweetArray'],
 	components: {
 		HomeContentsHeader,
 		HomeContentsTweetBox,
@@ -30,11 +31,6 @@ export default {
 	methods: {
 		onTweet(contents) {
 			this.$store.dispatch('Tweet/tweet', contents)
-		}
-	},
-	computed: {
-		getTweet() {
-			this.tweet = this.$store.state.Tweet.tweet
 		}
 	}
 }
