@@ -17,11 +17,6 @@ import HomeContentsTweetBox from '@/components/organisms/HomeContentsTweetBox.vu
 import HomeContentsTimeLine from '@/components/organisms/HomeContentsTimeLine.vue'
 
 export default {
-	data() {
-		return {
-			tweet: this.getTweet
-		}
-	},
 	props: ['tweetArray'],
 	components: {
 		HomeContentsHeader,
