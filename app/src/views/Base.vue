@@ -6,12 +6,14 @@
 			:tweetArray="this.getTweet"
 		/>
 		<SubContents />
+		<Modal />
 	</div>
 </template>
 
 <script>
 import SideHeader from '@/components/organisms/SideHeader.vue'
 import SubContents from '@/components/organisms/SubContents.vue'
+import Modal from '@/components/organisms/Modal.vue'
 export default {
 	data() {
 		return {
@@ -20,7 +22,8 @@ export default {
 	},
 	components: {
 		SideHeader,
-		SubContents
+		SubContents,
+		Modal
 	},
 	async created() {
 		const token = localStorage.token

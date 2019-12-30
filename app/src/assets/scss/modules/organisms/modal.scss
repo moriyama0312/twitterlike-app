@@ -1,0 +1,61 @@
+@charset 'utf-8';
+
+.c-modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	&__inner {
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		z-index: 100;
+	}
+	&__layer {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: rgba(0, 0, 0, .5);
+		z-index: 99;
+	}
+	&__contents {
+		width: 600px;
+		.c-tweet {
+			outline: none;
+			height: 240px;
+			border-radius: 0 0 10px 10px;
+			&__contents {
+				form {
+					display: flex;
+					flex-direction: column;
+					height: 100%;
+				}
+				.c-textarea {
+					flex: 1;
+					> textarea {
+						height: 100%;
+					}
+				}
+			}
+		}
+		&__close {
+			border-bottom: 1px solid $border-color-light;
+			padding: 10px 5px;
+			text-align: left;
+			background: $key-bg-color;
+			border-radius: 10px 10px 0 0;
+			span {
+				cursor: pointer;
+				font-size: 26px;
+				line-height: 1;
+				color: $key-color;
+			}
+		}
+	}
+}
