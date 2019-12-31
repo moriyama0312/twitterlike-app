@@ -7,7 +7,9 @@
 						@click="modalClose"
 					>×</span>
 				</div>
-				<HomeContentsTweetBox />
+				<HomeContentsTweetBox
+					:onTweet="onTweet"
+				/>
 			</div>
 		</div>
 		<div class="c-modal__layer" />
@@ -27,6 +29,10 @@ export default {
 	methods: {
 		modalClose() {
 			this.$emit('modal-close')
+		},
+		onTweet(contents) {
+			this.$store.dispatch('Tweet/tweet', contents)
+			this.modalClose()
 		}
 	}
 }
