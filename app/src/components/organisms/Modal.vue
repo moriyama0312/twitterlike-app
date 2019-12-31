@@ -3,7 +3,9 @@
 		<div class="c-modal__inner">
 			<div class="c-modal__contents">
 				<div class="c-modal__contents__close">
-					<span>×</span>
+					<span
+						@click="modalClose"
+					>×</span>
 				</div>
 				<HomeContentsTweetBox />
 			</div>
@@ -21,6 +23,11 @@ export default {
 	},
 	components: {
 		HomeContentsTweetBox
+	},
+	methods: {
+		modalClose() {
+			this.$emit('modal-close')
+		}
 	}
 }
 </script>

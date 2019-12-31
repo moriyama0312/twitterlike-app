@@ -5,7 +5,12 @@
 			:key="list.id"
 			:list="list"
 		/>
-		<li id="tweet" class="js-modal"><a href="#">+</a></li>
+		<li id="tweet" class="js-modal">
+			<a
+				href="#"
+				@click="modalOpen"
+			>+</a>
+		</li>
 	</ul>
 </template>
 <script>
@@ -39,6 +44,11 @@ export default {
 	},
 	components: {
 		SideHeaderListItem
+	},
+	methods: {
+		modalOpen() {
+			this.$emit('modal-open')
+		}
 	}
 }
 </script>

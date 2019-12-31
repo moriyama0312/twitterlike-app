@@ -1,12 +1,17 @@
 <template>
 	<div id="loggin-page">
-		<SideHeader />
+		<SideHeader
+			@modal-open="modalOpen"
+		/>
 		<router-view 
 			v-if="!isLoading"
 			:tweetArray="this.getTweet"
 		/>
 		<SubContents />
-		<Modal />
+		<Modal
+			v-if="isOpen"
+			@modal-close="modalClose"
+		/>
 	</div>
 </template>
 
@@ -17,7 +22,8 @@ import Modal from '@/components/organisms/Modal.vue'
 export default {
 	data() {
 		return {
-			isLoading: true
+			isLoading: true,
+			isOpen: false
 		}
 	},
 	components: {
@@ -36,6 +42,14 @@ export default {
 	computed: {
 		getTweet() {
 			return this.$store.getters['Tweet/sortTweet']
+		}
+	},
+	methods: {
+		modalOpen() {
+			this.isOpen = true
+		},
+		modalClose() {
+			this.isOpen = false
 		}
 	},
 	beforeRouteEnter: (to, from, next) => {
