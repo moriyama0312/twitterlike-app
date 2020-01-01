@@ -13,6 +13,11 @@
 					<span class="header__id">@{{ item.user_id }}</span>
 					<span class="header__time">・{{ item.tweet_time }}</span>
 				</div>
+				<div
+					v-if="item.target_tweet_id"
+					class="item__reply-to"
+				>
+					返信先: {{}}さん
 				<div class="item__contents__main">
 					<span class="main__text">{{ item.txt }}</span>
 					<span class="main__img"></span>
