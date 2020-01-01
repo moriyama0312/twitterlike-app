@@ -4,6 +4,7 @@
 .tweet-item-detail {
 	background: $key-bg-color;
 	color: $key-font-color;
+	border-bottom: 1px solid $border-color-light;
 	&__inner {
 		padding: 10px 15px 0;
 	}

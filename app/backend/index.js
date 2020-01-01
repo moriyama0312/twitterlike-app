@@ -4,6 +4,7 @@ import socketIO from 'socket.io';
 import dbCheck from './db/dbCheck';
 import getProfile from './get/profile';
 import getTweet from './get/tweet';
+import getReply from './get/reply';
 import addTweet from './post/addTweet';
 import jwtFunc from './jwt/index.js';
 import toolFuncs from './tools/func.js';
@@ -41,6 +42,10 @@ export default (app, http) => {
 			const id = await jwtFunc.decode(data.token);
 			const tweet = await getTweet(id);
 			socket.emit('getTweet', tweet);
+		});
+		socket.on('getReply', async (data) => {
+			const replys = await getReply(data.tweetId);
+			socket.emit('getReply', replys);
 		});
 		socket.on('addTweet', async (data) => {
 			const id = await jwtFunc.decode(data.token);

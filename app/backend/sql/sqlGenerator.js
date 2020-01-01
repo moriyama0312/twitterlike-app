@@ -39,5 +39,11 @@ export default (type, payload={}) => {
 						ON tweet_all_test.user_id = user_info_test.user_id
 						WHERE tweet_all_test.tweet_id = ${payload.maxId};`;
 			}
+		case 'GET_REPLY':
+			return `SELECT *
+					FROM action_reply_test
+					JOIN user_info_test
+					ON action_reply_test.user_by = user_info_test.user_id
+					WHERE root_tweet_id = ${payload.tweetId};`;
 	}
 }

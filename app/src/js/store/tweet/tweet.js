@@ -2,11 +2,18 @@ import tweetFuncs from './methods'
 export default {
 	namespaced: true,
 	state: {
-		tweet: []
+		tweet: [],
+		reply: {
+			rootTweetId: null,
+			tweet: []
+		}
 	},
 	mutations: {
 		setTweet: (state, data) => {
 			state.tweet = data
+		},
+		setReply: (state, data) => {
+			state.reply = data
 		},
 		addTweet: (state, data) => {
 			state.tweet.push(data)
@@ -44,6 +51,13 @@ export default {
 			return await tweetFuncs.getTweet(data)
 				.then((res) => {
 					ctx.commit('setTweet', res)
+				})
+		},
+		getReply: async (ctx, data) => {
+			return await tweetFuncs.getReply(data)
+				.then((res) => {
+					ctx.commit('setReply', {tweetId: data.tweetId, tweet: res})
+					return res
 				})
 		}
 	}

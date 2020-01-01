@@ -25,5 +25,10 @@ export default {
 		const socket = io()
 		const data = await getContentsBySocket(socket, 'getTweet', token)
 		return data
+	},
+	getReply: async (info) => {
+		const socket = io()
+		const data = await getContentsBySocket(socket, 'getReply', info)
+		return data
 	}
 }
