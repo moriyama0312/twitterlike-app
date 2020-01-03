@@ -6,9 +6,10 @@
 			:tweetId="tweetId"
 		/>
 		<TimeLineItem
-			v-for="reply in replys"
+			v-for="reply in replyInfo.replyList"
 			:key="reply.tweet_id"
 			:item="reply"
+			:userList="replyInfo.userList"
 		/>
 	</div>
 </template>
@@ -19,7 +20,7 @@ import TimeLineItem from '@/components/organisms/TimeLineItem'
 export default {
 	data() {
 		return {
-			replys: []
+			replyInfo: {}
 		}
 	},
 	props: ['userId', 'tweetId'],
@@ -30,7 +31,7 @@ export default {
 	},
 	async created() {
 		const token = localStorage.token
-		this.replys = await this.$store.dispatch('Tweet/getReply', {token, tweetId: this.tweetId})
+		this.replyInfo = await this.$store.dispatch('Tweet/getReply', {token, tweetId: this.tweetId})
 	}
 }
 </script>
