@@ -18,6 +18,7 @@
 					class="item__reply-to"
 				>
 					返信先: {{}}さん
+				</div>
 				<div class="item__contents__main">
 					<span class="main__text">{{ item.txt }}</span>
 					<span class="main__img"></span>

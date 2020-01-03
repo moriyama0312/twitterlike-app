@@ -42,8 +42,10 @@ export default (type, payload={}) => {
 		case 'GET_REPLY':
 			return `SELECT *
 					FROM action_reply_test
-					JOIN user_info_test
-					ON action_reply_test.user_by = user_info_test.user_id
 					WHERE root_tweet_id = ${payload.tweetId};`;
+		case 'GET_USER_INFO':
+			return `SELECT *
+					FROM user_info_test
+					WHERE user_id = '${payload.userId}';`;
 	}
 }

@@ -5,7 +5,8 @@ export default {
 		tweet: [],
 		reply: {
 			rootTweetId: null,
-			tweet: []
+			tweet: [],
+			userList: []
 		}
 	},
 	mutations: {
@@ -13,7 +14,9 @@ export default {
 			state.tweet = data
 		},
 		setReply: (state, data) => {
-			state.reply = data
+			state.reply.rootTweetId = data.tweetId
+			state.reply.tweet = data.replyInfo.replyList
+			state.reply.userList = data.replyInfo.userList
 		},
 		addTweet: (state, data) => {
 			state.tweet.push(data)
@@ -56,7 +59,7 @@ export default {
 		getReply: async (ctx, data) => {
 			return await tweetFuncs.getReply(data)
 				.then((res) => {
-					ctx.commit('setReply', {tweetId: data.tweetId, tweet: res})
+					ctx.commit('setReply', {tweetId: data.tweetId, replyInfo: res})
 					return res
 				})
 		}

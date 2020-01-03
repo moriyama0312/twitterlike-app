@@ -45,6 +45,7 @@ export default (app, http) => {
 		});
 		socket.on('getReply', async (data) => {
 			const replys = await getReply(data.tweetId);
+			console.log(replys);
 			socket.emit('getReply', replys);
 		});
 		socket.on('addTweet', async (data) => {
