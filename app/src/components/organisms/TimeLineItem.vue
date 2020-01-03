@@ -35,6 +35,7 @@
 					<div class="footer__inner">
 						<TweetActionList
 							:item="item"
+							:replyUserList="userList"
 						/>
 					</div>
 				</div>
@@ -45,7 +46,19 @@
 <script>
 import TweetActionList from '@/components/organisms/TweetActionList.vue'
 export default {
-	props: ['item'],
+	props: {
+		item: {
+			type: Object,
+			required: true
+		},
+		userList: {
+			type: Array,
+			required: false,
+			default: () => {
+				return []
+			}
+		}
+	},
 	components: {
 		TweetActionList
 	}
