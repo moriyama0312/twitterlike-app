@@ -35,6 +35,13 @@
 				color: $key-font-color-light;
 			}
 		}
+		&__reply-to {
+			text-align: left;
+			color: $key-font-color-light;
+			a {
+				color: $key-color;
+			}
+		}
 		&__main {
 			text-align: left;
 			color: $key-font-color;

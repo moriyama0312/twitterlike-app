@@ -15,9 +15,17 @@
 				</div>
 				<div
 					v-if="item.target_tweet_id"
-					class="item__reply-to"
+					class="item__contents__reply-to"
 				>
-					返信先: {{}}さん
+					返信先: 
+					<span
+						v-for="(targetId, idx) in item.target_user_id"
+						:key="targetId"
+					>
+						<router-link
+							:to="{path: '/'}"
+						>@{{targetId}}</router-link>さん<span v-if="item.target_user_id.length > 1 && idx < item.target_user_id.length - 1">, </span>
+					</span>
 				</div>
 				<div class="item__contents__main">
 					<span class="main__text">{{ item.txt }}</span>
