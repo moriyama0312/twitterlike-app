@@ -32,7 +32,7 @@ export default {
 	async created() {
 		const token = localStorage.token
 		await this.$store.dispatch('Tweet/getReply', {token, tweetId: this.tweetId})
-		this.replyInfo = this.$store.getters['Tweet/sortReply']
+		this.replyInfo = this.$store.getters['Tweet/getReply']
 	}
 }
 </script>

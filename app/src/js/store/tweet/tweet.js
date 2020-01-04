@@ -48,22 +48,28 @@ export default {
 			let result = state.tweet.filter(item => item.tweet_id === Number(tweetId))[0]
 			return result
 		},
-		sortReply: (state) => {
-			let replyArray = Array.from(state.reply.tweet)
-			// 時系列に並び替えをまずやる
-
+		sortReply: (state, getters) => {
+			let replyArray = getters.sortTweet('reply')
 			// リプライが続いた時の場所へ移動
-			replyArray.forEach(reply => {
+			// 時系列順にソート済みなので削除対象より必ず前に移動する
+			replyArray.forEach((reply, index) => {
 				if(reply.target_tweet_id !== state.rootTweetId) {
 					let idx = 0
+					let tmp = reply
 					replyArray.forEach((item, i) => {
 						// replyを移動する場所
 						if(item.tweet_id === reply.target_tweet_id) {
 							idx = i + 1
 						}
 					})
+					replyArray.splice(index, 1)
+					replyArray.splice(idx, 0, tmp)
 				}
 			})
+			return replyArray
+		},
+		getReply: (state, getters) => {
+			return Object.assign({}, state.reply, {tweet: getters.sortReply})
 		}
 	},
 	actions: {
