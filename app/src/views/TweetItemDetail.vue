@@ -6,7 +6,7 @@
 			:tweetId="tweetId"
 		/>
 		<TimeLineItem
-			v-for="reply in replyInfo.replyList"
+			v-for="reply in replyInfo.tweet"
 			:key="reply.tweet_id"
 			:item="reply"
 			:userList="replyInfo.userList"
