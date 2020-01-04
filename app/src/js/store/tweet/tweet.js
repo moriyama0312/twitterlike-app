@@ -23,8 +23,13 @@ export default {
 		}
 	},
 	getters: {
-		sortTweet: (state) => {
-			let tweetArray = Array.from(state.tweet)
+		sortTweet: (state) => (type) => {
+			let tweetArray  = []
+			if(type === 'tweet') {
+				tweetArray = Array.from(state.tweet)
+			}else {
+				tweetArray = Array.from(state.reply.tweet)
+			}
 			let tmp = tweetArray[0]
 			for(let i = 0; i < tweetArray.length - 1; i++) {
 				for(let j = tweetArray.length - 1; j > i; j--) {
@@ -42,6 +47,23 @@ export default {
 		pickTweet: (state) => (tweetId) => {
 			let result = state.tweet.filter(item => item.tweet_id === Number(tweetId))[0]
 			return result
+		},
+		sortReply: (state) => {
+			let replyArray = Array.from(state.reply.tweet)
+			// 時系列に並び替えをまずやる
+
+			// リプライが続いた時の場所へ移動
+			replyArray.forEach(reply => {
+				if(reply.target_tweet_id !== state.rootTweetId) {
+					let idx = 0
+					replyArray.forEach((item, i) => {
+						// replyを移動する場所
+						if(item.tweet_id === reply.target_tweet_id) {
+							idx = i + 1
+						}
+					})
+				}
+			})
 		}
 	},
 	actions: {

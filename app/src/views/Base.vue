@@ -36,12 +36,11 @@ export default {
 		await this.$store.dispatch('Login/login', {token})
 		await this.$store.dispatch('Profile/getProfile', {token})
 		await this.$store.dispatch('Tweet/getTweet', {token})
-		this.tweet = this.$store.getters['Tweet/sortTweet']
 		this.isLoading = !this.isLoading
 	},
 	computed: {
 		getTweet() {
-			return this.$store.getters['Tweet/sortTweet']
+			return this.$store.getters['Tweet/sortTweet']('tweet')
 		}
 	},
 	methods: {
