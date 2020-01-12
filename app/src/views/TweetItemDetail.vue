@@ -10,6 +10,7 @@
 			:key="reply.tweet_id"
 			:item="reply"
 			:userList="replyInfo.userList"
+			:class="{isConv: (replyInfo.rootTweetId !== reply.target_tweet_id)}"
 		/>
 	</div>
 </template>
