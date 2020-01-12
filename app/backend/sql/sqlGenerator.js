@@ -44,7 +44,8 @@ export default (type, payload={}) => {
 					FROM action_reply_test
 					JOIN user_info_test
 					ON action_reply_test.user_id = user_info_test.user_id
-					WHERE root_tweet_id = ${payload.tweetId};`;
+					WHERE root_tweet_id = ${payload.tweetId}
+					ORDER BY action_reply_test.tweet_time ASC;`;
 		case 'GET_USER_INFO':
 			return `SELECT *
 					FROM user_info_test

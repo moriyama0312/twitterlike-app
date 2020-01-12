@@ -40,7 +40,7 @@ export default {
 	},
 	computed: {
 		getTweet() {
-			return this.$store.getters['Tweet/sortTweet']('tweet')
+			return this.$store.getters['Tweet/sortTweet']('tweet', 1)
 		}
 	},
 	methods: {
